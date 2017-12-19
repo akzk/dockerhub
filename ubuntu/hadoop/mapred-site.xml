@@ -1,0 +1,11 @@
+<configuration>
+    <property>
+        <name>mapreduce.framework.name</name>
+        <value>yarn</value>
+        <description>MapReduce使用的执行框架</description>
+    </property>
+    <property>
+      	<name>mapred.job.tracker</name>
+      	<value>http://hadoop-master:9001</value>
+	</property>
+</configuration>
