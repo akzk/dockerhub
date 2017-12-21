@@ -3,6 +3,20 @@
 > 1. 在Mac上部署Hadoop/Spark开发环境，Spark默认先安装Hadoop
 > 2. 需要先停止、删除本机所有容器⚠️
 
+## 下载镜像
+
+需要Hadoop则执行：
+
+```bash
+docker pull akzk/hadoop:mac
+```
+
+需要Spark则执行：
+
+```bash
+docker pull akzk/spark:mac
+```
+
 ## 部署Hadoop并测试
 
 执行以下命令：
