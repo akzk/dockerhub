@@ -1,7 +1,7 @@
 <configuration>
 	<property>
         <name>fs.defaultFS</name>
-        <value>hdfs://hadoop-master:9000</value>
+        <value>hdfs://master:9000</value>
   	<description>分布式文件系统主机与端口</description>
     </property>
     <property>

@@ -12,12 +12,17 @@ if [ "$2" == "" ]; then
 	exit 1
 fi
 
+if [ "$3" == "" ]; then
+	echo "[ParamsError] need image name, such as akzk/hadoop:mac and akzk/spark:mac"
+	exit 1
+fi
+
 rm -rf $1/$2
 
 res_dir=$(cd "$(dirname "$0")"; pwd)
 
 if [ "$2" == "master" ]; then
-	echo "hadoop-$2 starting..."
+	echo "$2 starting..."
 	docker run -itd \
 		-v $1/$2/tmp:/usr/local/hadoop/tmp \
 		-v $1/$2/name:/usr/local/hadoop/hdfs/name \
@@ -29,13 +34,13 @@ if [ "$2" == "master" ]; then
 		-v $res_dir/yarn-site.xml:/usr/local/hadoop/etc/hadoop/yarn-site.xml \
 		-v $res_dir/mapred-site.xml:/usr/local/hadoop/etc/hadoop/mapred-site.xml \
 		-p 8088:8088 \
+		-p 8080:8080 \
 		-p 50070:50070 \
-		-h "hadoop-$2" \
-		--name "hadoop-$2" \
-		akzk/hadoop
-	# docker exec hadoop-$2 cat /root/.ssh/authorized_keys > ./authorized_keys
+		-h "$2" \
+		--name "$2" \
+		$3
 else
-	echo "hadoop-$2 starting..."
+	echo "$2 starting..."
 	docker run -itd \
 		-v $1/$2/tmp:/usr/local/hadoop/tmp \
 		-v $1/$2/name:/usr/local/hadoop/hdfs/name \
@@ -46,7 +51,7 @@ else
 		-v $res_dir/hdfs-site.xml:/usr/local/hadoop/etc/hadoop/hdfs-site.xml \
 		-v $res_dir/yarn-site.xml:/usr/local/hadoop/etc/hadoop/yarn-site.xml \
 		-v $res_dir/mapred-site.xml:/usr/local/hadoop/etc/hadoop/mapred-site.xml \
-		-h "hadoop-$2" \
-		--name "hadoop-$2" \
-		akzk/hadoop
+		-h "$2" \
+		--name "$2" \
+		$3
 fi

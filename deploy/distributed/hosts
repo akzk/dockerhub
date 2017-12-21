@@ -5,6 +5,6 @@ ff00::0 ip6-mcastprefix
 ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 
-172.17.0.2      hadoop-master
-172.17.0.3		hadoop-slave1
-172.17.0.4		hadoop-slave2
+172.17.0.2      master
+172.17.0.3		slave1
+172.17.0.4		slave2

@@ -13,7 +13,7 @@ RUN ssh-keygen -t rsa  -P '' -f ~/.ssh/id_rsa \
 	&& echo "StrictHostKeyChecking no" >> /etc/ssh/ssh_config
 
 # download and install hadoop2.7
-RUN wget http://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/common/hadoop-2.7.5/hadoop-2.7.5.tar.gz \
+RUN wget -q http://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/common/hadoop-2.7.5/hadoop-2.7.5.tar.gz \
 	&& tar zxf hadoop-2.7.5.tar.gz -C /usr/local \
 	&& mv /usr/local/hadoop-2.7.5 /usr/local/hadoop \
 	&& rm hadoop-2.7.5.tar.gz

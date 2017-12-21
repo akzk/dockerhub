@@ -6,6 +6,6 @@
     </property>
     <property>
       	<name>mapred.job.tracker</name>
-      	<value>http://hadoop-master:9001</value>
+      	<value>http://master:9001</value>
 	</property>
 </configuration>
