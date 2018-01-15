@@ -5,7 +5,7 @@ set -e
 share_dir=/Users/leonardo/Desktop/tmp
 
 if [ "$1" == "spark" ]; then
-    image=akzk/spark:mac
+    image=akzk/spark:cmac
 else
     image=akzk/hadoop:mac
 fi
@@ -24,7 +24,7 @@ docker exec -it master bash -c 'bash start-dfs.sh'
 docker exec -it master bash -c 'bash start-yarn.sh'
 docker exec -it master bash -c 'hadoop dfs -mkdir -p /user/root'
 
-启动spark
+# 启动spark
 if [ "$1" == "spark" ]; then
     docker exec -it master bash -c "bash /usr/local/spark/sbin/start-all.sh"
 fi
